@@ -52,3 +52,11 @@ If you want to upgrade the monitored container, you have to change the restart p
 1. Upgrade/replace the monitored container
 1. Change restart policy of watchdog container ```docker update --restart=always watchdog``` 
 1. start watchdog container with ```docker start watchdog```
+
+## Orange PI with Armbian instructions
+
+Ensure the following is added to `/boot/armbianEnv.txt`:
+
+```text
+extraargs=sunxi_wdt.nowayout=1
+```
