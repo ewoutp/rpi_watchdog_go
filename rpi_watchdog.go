@@ -63,9 +63,9 @@ func main() {
 		go checkConnectionIsAlive(url, delay, resultFromConnectionCheck)
 	}
 
-	wdog, err1 := os.Create("/dev/watchdog")
-	if err1 != nil {
-		fmt.Println("Could not access /dev/watchdog.")
+	wdog, err := os.Create("/dev/watchdog")
+	if err != nil {
+		fmt.Printf("Could not access /dev/watchdog: %s\n", err)
 		fmt.Println("Did you run the container with the option --device /dev/watchdog:/dev/watchdog ?")
 		fmt.Println("Did you run 'apt install watchdog' on your host ?")
 		panic("Exiting")
